@@ -12,7 +12,7 @@ class Task {
     }
 }
 
-function addTask(obj: HTMLElement) {
+function addTask(obj: HTMLElement): void {
     const month: string = obj.parentElement?.parentElement?.parentElement?.parentElement?.querySelector("h1")?.innerHTML as string;
     const day: number = parseInt(obj.parentElement?.querySelector<HTMLElement>("h3")?.innerHTML as string);
 
@@ -21,7 +21,7 @@ function addTask(obj: HTMLElement) {
     console.log(month, day);
 }
 
-function saveTask(month: string, day: number, title: string, description: string, time: string) {
+function saveTask(month: string, day: number, title: string, description: string, time: string): void {
     const monthArrayObject: Month = months.find(mon => mon.name == month) as Month;
     monthArrayObject.tasks.push(new Task(day, title, description, time));
 }

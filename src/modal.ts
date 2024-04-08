@@ -1,4 +1,4 @@
-function popModal(month: string, day: number) {
+function popModal(month: string, day: number): void {
     const modal = document.createElement("div");
     modal.classList.add("modal-screen");
 
@@ -86,7 +86,7 @@ function popModal(month: string, day: number) {
     document.body.append(modal);
 }
 
-function closeModal() {
+function closeModal(): void {
     const modals = document.querySelectorAll(".modal-screen");
 
     if (!modals) return;

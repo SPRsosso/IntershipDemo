@@ -5,7 +5,7 @@ class CalendarMonth extends HTMLElement {
         this.attachShadow({ mode: "open" });
     }
 
-    connectedCallback() {
+    connectedCallback(): void {
         if (!this.shadowRoot) return;
         if (!this.shadowRoot.host) return;
         

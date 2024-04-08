@@ -1,4 +1,4 @@
-function refreshCalendar() {
+function refreshCalendar(): void {
     const div = document.querySelector("main");
     if (!div) return;
 
