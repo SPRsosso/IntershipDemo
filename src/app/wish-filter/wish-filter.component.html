@@ -1,0 +1,13 @@
+<div class="col-sm-2">
+    <select 
+        class="form-select"
+        (change)="updateFilter($event)">
+
+        <option 
+            *ngFor="let selectOption of selectOptions; index as index"
+            [value]="index"
+        >
+            {{ selectOption }}
+        </option>
+    </select>
+</div>
