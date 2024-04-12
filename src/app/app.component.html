@@ -1,23 +1,7 @@
-<div class="container">
-    <add-wish-form
-        (addWish)="items.push($event); onFilterChange()"
-    ></add-wish-form>
-
-    <div class="row mt-3">
-        <wish-filter
-            (filterChange)="onFilterChange($event)"
-            [selectOptions]="['All', 'Unfulfilled', 'Fulfilled']"
-        ></wish-filter>
-    </div>
-
-    <div class="row mt-3">
-        <wish-list
-            [wishes]="filteredItems"
-            (reloadWishes)="onFilterChange()"
-        ></wish-list>
-
-    </div>
-
-    <wish-filter [selectOptions]="['Some', 'Thing', 'Bucket']"></wish-filter>
-</div>
-<!-- Input - flows from parent to child, Output - flows from child to parent -->
+<h1>{{title}}</h1>
+<nav>
+    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/heroes">Heroes</a>
+</nav>
+<router-outlet></router-outlet>
+<app-messages></app-messages>
