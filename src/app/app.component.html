@@ -1,7 +1,8 @@
-<h1>{{title}}</h1>
-<nav>
-    <a routerLink="/dashboard">Dashboard</a>
-    <a routerLink="/heroes">Heroes</a>
-</nav>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+<h1>{{ title }}</h1>
+<div class="month-holder">
+  <calendar-month
+    *ngFor="let month of months"
+    [name]="month.name"
+  ></calendar-month>
+</div>
+<popup-module></popup-module>

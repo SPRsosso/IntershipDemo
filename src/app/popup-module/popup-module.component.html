@@ -1,0 +1,12 @@
+<div class="cover" *ngIf="isOpen">
+    <div class="form">
+        <button class="close-btn" (click)="closePopupClicked()">X</button>
+        <h3>Add task form</h3>
+        <div>
+            <p>Name: <input type="text" [(ngModel)]="name" (ngModelChange)="name"></p>
+            <p>Description: <input type="text" [(ngModel)]="description" (ngModelChange)="description"></p>
+            <p>Time: <input type="time" [(ngModel)]="time" (ngModelChange)="time"></p>
+        </div>
+        <button class="form-btn" (click)="addTaskClicked()">Add task</button>
+    </div>
+</div>

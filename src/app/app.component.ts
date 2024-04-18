@@ -1,22 +1,27 @@
-import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet, provideRouter } from '@angular/router';
-import { HeroesComponent } from './heroes/heroes.component';
+import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { CalendarMonthComponent } from './calendar-month/calendar-month.component';
+import { MonthService } from './month.service';
 import { CommonModule } from '@angular/common';
-import { MessagesComponent } from './messages/messages.component';
+import { PopupModuleComponent } from './popup-module/popup-module.component';
+import { PopupService } from './popup.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,
-    RouterModule,
-    HeroesComponent,
-    MessagesComponent,
+    CommonModule,
+    CalendarMonthComponent,
+    PopupModuleComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  schemas: [NO_ERRORS_SCHEMA]
+  schemas: [ NO_ERRORS_SCHEMA ]
 })
 export class AppComponent {
-  title = 'Tour of Heroes';
+  title = 'Schedule';
+  months = this.monthService.getMonths();
+
+  constructor(private monthService: MonthService, private popupService: PopupService) {}
 }

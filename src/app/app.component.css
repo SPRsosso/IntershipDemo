@@ -1,0 +1,17 @@
+h1 {
+    width: 100%;
+    padding: 10px;
+
+    display: block;
+
+    background-color: lightgray;
+}
+
+.month-holder {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
