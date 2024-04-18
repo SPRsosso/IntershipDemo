@@ -1,0 +1,13 @@
+h2 {
+    background-color: lightgray;
+    text-align: center;
+    padding: 10px;
+}
+
+.day-holder {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+
+    padding: 5px;
+}

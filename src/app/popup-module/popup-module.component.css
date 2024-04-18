@@ -1,0 +1,55 @@
+.cover {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.form {
+    width: 50%;
+    height: 50%;
+
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    position: relative;
+}
+
+.form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-btn, .close-btn {
+    background-color: lightgray;
+    border: 1px solid gray;
+    color: gray;
+    padding: 5px 10px;
+
+    position: absolute;
+
+    cursor: pointer;
+}
+
+.form-btn {
+    bottom: 10px;
+    right: 10px;
+}
+
+.close-btn {
+    top: 10px;
+    right: 10px;
+}

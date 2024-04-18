@@ -1,0 +1,9 @@
+<h2>{{ name }}</h2>
+<div class="day-holder">
+    <calendar-day
+        *ngFor="let day of daysArray"
+        [day]="day"
+        [name]="name"
+    >
+    </calendar-day>
+</div>

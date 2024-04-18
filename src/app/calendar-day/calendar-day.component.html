@@ -1,0 +1,13 @@
+<div class="title-holder">
+    <p>{{ day }}</p>
+    <button class="add-btn" (click)="addTaskClicked()">+</button>
+</div>
+<div class="task-holder">
+    <div class="task" *ngFor="let task of tasks">
+        <div class="title">
+            <h3>{{ task.name }}</h3>
+            <small>{{ task.time }}</small>
+        </div>
+        <p>{{ task.description }}</p>
+    </div>
+</div>
