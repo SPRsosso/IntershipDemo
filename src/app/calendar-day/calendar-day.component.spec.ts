@@ -22,7 +22,7 @@ describe('CalendarDayComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display popup on addTaskClicked', () => {
+  it('should display popup on add task click', () => {
     const service = TestBed.inject(PopupService);
     component.addTaskClicked();
     service.isOpen$.subscribe(args => {
