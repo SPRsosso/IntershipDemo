@@ -22,6 +22,8 @@ export class CalendarMonthComponent {
   days: number | undefined;
   daysArray: number[] = [];
 
+  constructor(private monthService: MonthService) {}
+
   ngOnInit(): void {
     this.month = this.monthService.getMonth(this.name);
     this.days = this.month?.days;
@@ -29,6 +31,4 @@ export class CalendarMonthComponent {
       for (let i = 1; i <= this.days; i++)
         this.daysArray.push(i);
   }
-
-  constructor(private monthService: MonthService) {}
 }

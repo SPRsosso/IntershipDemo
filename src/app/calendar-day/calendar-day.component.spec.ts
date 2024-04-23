@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CalendarDayComponent } from './calendar-day.component';
+import { PopupService } from '../popup.service';
 
 describe('CalendarDayComponent', () => {
   let component: CalendarDayComponent;
@@ -19,5 +20,13 @@ describe('CalendarDayComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should display popup on addTaskClicked', () => {
+    const service = TestBed.inject(PopupService);
+    component.addTaskClicked();
+    service.isOpen$.subscribe(args => {
+      expect(args.isOpen).toBeTruthy();
+    });
   });
 });

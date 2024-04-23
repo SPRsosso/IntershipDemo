@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID, inject } from '@angular/core';
 import { Month } from '../data/month';
 import { BehaviorSubject } from 'rxjs';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,24 @@ export class MonthService {
   ];
   months$ = new BehaviorSubject(this.months);
 
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    @Inject(PLATFORM_ID) private platformId: Object
+    
+  ) {
+    if(!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    const localStorage = document.defaultView?.localStorage;
+
+    if (localStorage !== undefined) {
+      const months = localStorage.getItem("months");
+      if (months)
+        this.months = JSON.parse(months);
+    }
+  }
+
   getMonth(name: string): Month | undefined {
     return this.months.find(month => month.name == name);
   }
@@ -29,6 +48,4 @@ export class MonthService {
   getMonths(): Month[] {
     return this.months;
   }
-
-  constructor() { }
 }

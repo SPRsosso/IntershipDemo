@@ -25,6 +25,14 @@ export class PopupModuleComponent {
   monthName: string | undefined = "";
   monthDay: number | undefined = 0;
 
+  constructor(private popupService: PopupService, private monthService: MonthService) {
+    this.popupService.isOpen$.subscribe((args) => {
+      this.isOpen = args.isOpen;
+      this.monthName = args.monthName;
+      this.monthDay = args.monthDay;
+    });
+  }
+
   clearInputs() {
     this.name = "";
     this.description = "";
@@ -40,16 +48,10 @@ export class PopupModuleComponent {
     const month = this.monthService.getMonth(this.monthName as string);
     month?.tasks.push(new Task(this.monthDay as number, this.name, this.description, this.time));
     this.monthService.months$.next(this.monthService.getMonths());
+
+    localStorage.setItem("months", JSON.stringify(this.monthService.getMonths()));
     
     this.clearInputs();
     this.popupService.changePopup();
-  }
-
-  constructor(private popupService: PopupService, private monthService: MonthService) {
-    this.popupService.isOpen$.subscribe((args) => {
-      this.isOpen = args.isOpen;
-      this.monthName = args.monthName;
-      this.monthDay = args.monthDay;
-    });
   }
 }
