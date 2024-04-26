@@ -26,7 +26,7 @@ describe('CalendarDayComponent', () => {
     const service = TestBed.inject(PopupService);
     component.addTaskClicked();
     service.isOpen$.subscribe(args => {
-      expect(args.isOpen).toBeFalse();
+      expect(args.isOpen).toBeTruthy();
     });
   });
 });
