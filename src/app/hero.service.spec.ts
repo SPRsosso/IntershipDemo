@@ -13,4 +13,11 @@ describe('HeroService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should return heroes', () => {
+    const heroesRequest = service.getHeroes();
+    heroesRequest.subscribe(( heroes ) => {
+      expect(heroes.length).toBe(9);
+    })
+  });
 });
